@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">InClass13</string>
+    <string name="login">Login</string>
+    <string name="newUser">New User?</string>
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+</resources>
