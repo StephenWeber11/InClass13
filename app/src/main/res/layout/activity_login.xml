@@ -4,10 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uncc.mobileappdev.inclass13.MainActivity">
+    tools:context="com.uncc.mobileappdev.inclass13.LoginActivity">
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/emailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,11 +18,11 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/passwordField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_below="@+id/editText2"
+        android:layout_alignEnd="@+id/emailField"
+        android:layout_below="@+id/emailField"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="@string/passwordHint"
@@ -32,9 +32,9 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_below="@+id/editText3"
+        android:layout_alignEnd="@+id/passwordField"
+        android:layout_alignStart="@+id/passwordField"
+        android:layout_below="@+id/passwordField"
         android:layout_marginTop="66dp"
         android:text="@string/login" />
 
