@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.uncc.mobileappdev.inclass13.SignUp"
+    android:padding= "20dp">
+
+    <EditText
+        android:id="@+id/LastName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FirstName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="@string/LastName"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/LastName"
+        android:layout_below="@+id/LastName"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/FirstName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:hint="@string/FirstName"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Email"
+        android:layout_below="@+id/Email"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/paswd"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Password"
+        android:layout_below="@+id/Password"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/ConformPaswrd"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText7"
+        android:layout_alignStart="@+id/editText7"
+        android:layout_below="@+id/editText7"
+        android:layout_marginTop="27dp"
+        android:text="Sign Up" />
+
+    <Button
+        android:id="@+id/Cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/SignUp"
+        android:layout_alignStart="@+id/SignUp"
+        android:layout_below="@+id/SignUp"
+        android:layout_marginTop="15dp"
+        android:text="Cancel" />
+</RelativeLayout>
