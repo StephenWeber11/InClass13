@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/fromLabel"
+        android:id="@+id/to_from_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -21,36 +21,68 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/fromName"
+        android:id="@+id/to_from_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/fromLabel"
+        android:layout_alignBottom="@+id/to_from_label"
         android:layout_marginStart="29dp"
-        android:layout_toEndOf="@+id/fromLabel"
+        android:layout_toEndOf="@+id/to_from_label"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <View
+        android:id="@+id/divider"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/fromLabel"
+        android:layout_below="@+id/to_from_label"
         android:layout_marginTop="13dp"
-        android:background="#FF00FF00" />
+        android:background="@android:color/black" />
 
     <RelativeLayout
         android:id="@+id/emailContentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:id="@+id/emailContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="375dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="64dp"
             android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/person_list_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="31dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_action_person" />
+
+        <EditText
+            android:id="@+id/enterMessage"
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/emailContent"
+            android:ems="10"
+            android:inputType="textLongMessage"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailContent"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sendButton"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </RelativeLayout>

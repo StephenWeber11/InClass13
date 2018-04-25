@@ -50,8 +50,6 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordField.getText().toString();
 
                 login(email, password);
-
-                pushStubMessages();
             }
         });
 
@@ -84,12 +82,5 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
-    private void pushStubMessages() {
-        mDatabase.child("mailboxes")
-                .child(mAuth.getCurrentUser().getUid())
-                .push()
-                .setValue(new Message("This is a test.", new Date(), "Stephen Weber", mAuth.getCurrentUser().getUid(), false));
     }
 }

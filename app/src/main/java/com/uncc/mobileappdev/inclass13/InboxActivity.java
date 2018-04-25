@@ -117,6 +117,7 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
         ArrayList<String> emailContent = new ArrayList<>();
         emailContent.add(message.getFromName());
         emailContent.add(message.getMessageText());
+        emailContent.add(keyList.get(position));
 
         mDatabase.child("mailboxes").child(getUid()).child(keyList.get(position)).setValue(message);
 
