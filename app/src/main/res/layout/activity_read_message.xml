@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="19dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="13dp"
         android:text="@string/fromLabel"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
@@ -36,21 +36,34 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/fromLabel"
         android:layout_marginTop="13dp"
-        android:background="#FF00FF00" />
+        android:background="#FF00FF00"
+        android:id="@+id/view" />
 
     <RelativeLayout
         android:id="@+id/emailContentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="11dp">
 
         <TextView
             android:id="@+id/emailContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="64dp"
+            android:layout_centerVertical="true"
             android:textColor="@android:color/black" />
+
     </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:minHeight="?attr/actionBarSize" />
 
 </RelativeLayout>

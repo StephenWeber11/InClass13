@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,13 +29,17 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordField;
     private Button login;
     private Button signup;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTitle(Constants.APP_TITLE);
-
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Login");
+        toolbar.setLogo(R.drawable.ic_launcher);
         userNameField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
         login = findViewById(R.id.loginButton);

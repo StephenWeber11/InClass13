@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.uncc.mobileappdev.inclass13.SignUpActivity"
-    android:padding= "20dp">
+    >
+    <include layout="@layout/toolbar"></include>
 
     <EditText
         android:id="@+id/LastName"
@@ -16,7 +17,9 @@
         android:layout_marginTop="11dp"
         android:ems="10"
         android:hint="@string/LastName"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <EditText
         android:id="@+id/Email"
@@ -24,10 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/LastName"
         android:layout_below="@+id/LastName"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="@string/Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <EditText
         android:id="@+id/FirstName"
@@ -35,10 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="61dp"
         android:ems="10"
         android:hint="@string/FirstName"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <EditText
         android:id="@+id/Password"
@@ -49,36 +56,42 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/paswd"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/Password"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/Password"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/ConformPaswrd"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/confirmPassword"
         android:layout_alignStart="@+id/confirmPassword"
         android:layout_below="@+id/confirmPassword"
-        android:layout_marginTop="27dp"
-        android:text="Sign Up" />
+        android:layout_marginTop="40dp"
+        android:text="Sign Up"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/signUpButton"
         android:layout_alignStart="@+id/signUpButton"
         android:layout_below="@+id/signUpButton"
-        android:layout_marginTop="15dp"
-        android:text="Cancel" />
+        android:layout_marginTop="16dp"
+        android:text="Cancel"
+        android:paddingLeft= "20dp"
+        android:paddingRight="20dp"/>
 </RelativeLayout>

@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +25,8 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
 
     private RecyclerView recyclerView;
     private InboxAdapter adapter;
+    Toolbar toolbar;
+    private ImageButton imgbtn;
 
     private ArrayList<Message> messages;
     private ArrayList<String> keyList;
@@ -32,7 +38,17 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
-        setTitle(Constants.APP_TITLE_INBOX);
+        //setTitle(Constants.APP_TITLE_INBOX);
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Inbox");
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.ic_launcher);
+
+
+
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -74,6 +90,8 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
 
         });
     }
+
+
 
     private String getUid() {
         return mAuth.getCurrentUser().getUid();
@@ -129,5 +147,25 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
     @Override
     public void removeItem(View v, int position) {
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.newEmail:
+                Intent intent = new Intent(InboxActivity.this, compaseMessageActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
