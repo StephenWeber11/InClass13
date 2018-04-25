@@ -9,4 +9,5 @@
     <string name="Email">Email</string>
     <string name="paswd">Password</string>
     <string name="ConformPaswrd">Confirm Password</string>
+    <string name="fromLabel">From:</string>
 </resources>

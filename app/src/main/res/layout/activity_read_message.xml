@@ -2,10 +2,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/readMessageLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.uncc.mobileappdev.inclass13.ReadMessageActivity">
 
 
+    <TextView
+        android:id="@+id/fromLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/fromLabel"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/fromName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fromLabel"
+        android:layout_marginStart="29dp"
+        android:layout_toEndOf="@+id/fromLabel"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fromLabel"
+        android:layout_marginTop="13dp"
+        android:background="#FF00FF00" />
+
+    <RelativeLayout
+        android:id="@+id/emailContentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/emailContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="64dp"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
 
 </RelativeLayout>

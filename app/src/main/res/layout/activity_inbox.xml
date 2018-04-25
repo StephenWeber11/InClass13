@@ -7,7 +7,7 @@
     tools:context="com.uncc.mobileappdev.inclass13.InboxActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/threadRecycleListView"
+        android:id="@+id/inboxRecycleListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />

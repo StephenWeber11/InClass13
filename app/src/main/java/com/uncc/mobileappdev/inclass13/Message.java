@@ -1,12 +1,14 @@
 package com.uncc.mobileappdev.inclass13;
 
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 
 /**
  * Created by Stephen on 4/23/2018.
  */
 
-public class Message {
+public class Message implements Comparable<Message>{
     private String messageText;
     private Date date;
     private String fromName;
@@ -61,5 +63,10 @@ public class Message {
 
     public void setRead(boolean read) {
         isRead = read;
+    }
+
+    @Override
+    public int compareTo(@NonNull Message message) {
+        return -(getDate().compareTo(message.getDate()));
     }
 }
