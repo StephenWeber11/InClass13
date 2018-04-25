@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -42,7 +43,7 @@ public class ComposeMessageActivity extends AppCompatActivity {
     private TextView emailMessage;
     private EditText enterMessage;
     private Button sendButton;
-
+    Toolbar toolbar;
     private String recipientUid;
     private ArrayList<User> users;
 
@@ -50,6 +51,10 @@ public class ComposeMessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_message);
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Compose Message");
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.ic_launcher);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
