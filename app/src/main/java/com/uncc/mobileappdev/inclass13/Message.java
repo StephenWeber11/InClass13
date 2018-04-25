@@ -65,6 +65,7 @@ public class Message implements Comparable<Message>{
         isRead = read;
     }
 
+    //Sort by date in DESCENDING order
     @Override
     public int compareTo(@NonNull Message message) {
         return -(getDate().compareTo(message.getDate()));
