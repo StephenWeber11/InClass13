@@ -161,7 +161,7 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
 
         switch (item.getItemId()){
             case R.id.newEmail:
-                Intent intent = new Intent(InboxActivity.this, compaseMessageActivity.class);
+                Intent intent = new Intent(InboxActivity.this, ComposeMessageActivity.class);
                 startActivity(intent);
                 finish();
                 break;

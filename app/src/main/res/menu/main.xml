@@ -3,31 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".InboxActivity">
-    <item
-    android:id="@+id/delete"
-    android:icon="@drawable/ic_action_discard"
-    android:orderInCategory="100"
-    android:title="Delete"
-    app:showAsAction="always"
-        android:visible="false"/>
-
-
-
-    <item
-        android:id="@+id/reply"
-        android:icon="@drawable/ic_action_reply"
-        android:orderInCategory="100"
-        android:title="Delete"
-        app:showAsAction="always"
-        android:visible="false"/>
-
 
     <item
         android:id="@+id/newEmail"
-        android:icon="@drawable/ic_action_reply"
+        android:icon="@drawable/ic_action_new_email"
         android:orderInCategory="100"
         android:title="newEmail"
-        app:showAsAction="always"
-        android:visible="false"/>
+        app:showAsAction="always" />
 
 </menu>
