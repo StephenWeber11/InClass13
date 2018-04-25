@@ -3,6 +3,7 @@ package com.uncc.mobileappdev.inclass13;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,13 +19,17 @@ public class ReadMessageActivity extends AppCompatActivity {
 
     private TextView senderName;
     private TextView emailMessage;
-
+    Toolbar toolbar;
     private String messageKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_message);
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Read Message");
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.ic_launcher);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
