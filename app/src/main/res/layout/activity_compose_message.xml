@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uncc.mobileappdev.inclass13.ReadMessageActivity">
-    <include layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+    android:background="@android:drawable/screen_background_light_transparent"
+    tools:context="com.uncc.mobileappdev.inclass13.ComposeMessageActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,20 +21,21 @@
             android:id="@+id/to_from_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/person_list_image"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="15dp"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            tools:text="From:" />
+            tools:text="To" />
 
         <TextView
             android:id="@+id/to_from_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/divider"
-            android:layout_marginStart="13dp"
+            android:layout_alignBaseline="@+id/to_from_label"
+            android:layout_alignBottom="@+id/to_from_label"
+            android:layout_marginStart="14dp"
             android:layout_toEndOf="@+id/to_from_label"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -63,16 +67,28 @@
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/divider">
 
-            <TextView
-                android:id="@+id/emailContent"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/enterMessage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="5dp"
-                android:textColor="@android:color/black"
-                android:visibility="invisible" />
+                android:background="@android:drawable/screen_background_light_transparent"
+                android:ems="10"
+                android:hint="@string/enter_message_here"
+                android:inputType="textMultiLine|textLongMessage"
+                android:visibility="visible" />
 
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="31dp"
+                android:text="@string/sendButton"
+                android:visibility="invisible" />
         </RelativeLayout>
     </RelativeLayout>
 

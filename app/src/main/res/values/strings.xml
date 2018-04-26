@@ -11,4 +11,5 @@
     <string name="ConformPaswrd">Confirm Password</string>
     <string name="fromLabel">From:</string>
     <string name="sendButton">Send</string>
+    <string name="enter_message_here">Enter message</string>
 </resources>

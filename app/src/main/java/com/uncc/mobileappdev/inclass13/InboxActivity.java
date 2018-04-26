@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,11 +24,9 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
 
     private RecyclerView recyclerView;
     private InboxAdapter adapter;
-    Toolbar toolbar;
-    private ImageButton imgbtn;
+    private Toolbar toolbar;
 
     private ArrayList<Message> messages;
-    private ArrayList<String> keyList;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -38,17 +35,10 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
-        //setTitle(Constants.APP_TITLE_INBOX);
-        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Inbox");
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.drawable.ic_launcher);
-
-
-
-
-
-
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -59,17 +49,15 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
 
     private void getMessageData() {
         messages = null;
-        keyList = null;
         mDatabase.child("mailboxes").child(getUid()).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 buildMessageList();
-                buildKeyList();
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     Message message = postSnapshot.getValue(Message.class);
+                    message.setDataKey(postSnapshot.getKey());
                     messages.add(message);
-                    keyList.add(postSnapshot.getKey());
                 }
 
                 /*
@@ -105,15 +93,6 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
         }
     }
 
-    private void buildKeyList() {
-        if(keyList == null) {
-            keyList = new ArrayList<>();
-        } else {
-            keyList.clear();
-        }
-    }
-
-
     private void buildAdapterIfNecessary() {
         if(adapter == null) {
             adapter = new InboxAdapter(InboxActivity.this, InboxActivity.this, messages);
@@ -135,9 +114,10 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
         ArrayList<String> emailContent = new ArrayList<>();
         emailContent.add(message.getFromName());
         emailContent.add(message.getMessageText());
-        emailContent.add(keyList.get(position));
+        emailContent.add(message.getSenderUid());
+        emailContent.add(message.getDataKey());
 
-        mDatabase.child("mailboxes").child(getUid()).child(keyList.get(position)).setValue(message);
+        mDatabase.child("mailboxes").child(getUid()).child(message.getDataKey()).setValue(message);
 
         Intent intent = new Intent(InboxActivity.this, ReadMessageActivity.class);
         intent.putStringArrayListExtra(Constants.INTENT_KEY, emailContent);
@@ -153,20 +133,18 @@ public class InboxActivity extends AppCompatActivity implements RecyclerViewClic
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
+        MenuItem newEmail = menu.findItem(R.id.newEmail);
+        newEmail.setVisible(true);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //There will only be one menu item visible
+        Intent intent = new Intent(InboxActivity.this, ComposeMessageActivity.class);
+        startActivity(intent);
 
-        switch (item.getItemId()){
-            case R.id.newEmail:
-                Intent intent = new Intent(InboxActivity.this, ComposeMessageActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-
-        }
         return super.onOptionsItemSelected(item);
     }
 }

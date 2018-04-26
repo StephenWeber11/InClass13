@@ -50,16 +50,12 @@ public class SignUpActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fName = fNameField.getText().toString();
-                String lName = lNameField.getText().toString();
                 String email = emailField.getText().toString();
                 String passOne = passField.getText().toString();
                 String passTwo = passConfirmField.getText().toString();
 
                 if(passwordsMatch(passOne, passTwo)) {
                     signup(email, passOne);
-                    pushUserData(fName, lName, getUid(), email);
-
                 } else {
                     Toast.makeText(SignUpActivity.this, "Passwords must match!", Toast.LENGTH_SHORT).show();
                 }
@@ -81,12 +77,20 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signup(String email, String password) {
+        final String emailAddr = email;
         mAuth.createUserWithEmailAndPassword(email, password).
                 addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Log.d("AUTH", "createUserWithEmail:SUCCESS");
+                            String fName = fNameField.getText().toString();
+                            String lName = lNameField.getText().toString();
+                            pushUserData(fName, lName, getUid(), emailAddr);
+
+                            Intent intent = new Intent(SignUpActivity.this, InboxActivity.class);
+                            startActivity(intent);
+                            finish();
 
                         } else {
                             Log.d("AUTH", "createUserWithEmail:FAILURE", task.getException());

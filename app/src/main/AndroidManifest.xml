@@ -19,6 +19,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".ReadMessageActivity" />
         <activity android:name=".InboxActivity" />
+        <activity android:name=".ComposeMessageActivity" />
     </application>
 
 </manifest>

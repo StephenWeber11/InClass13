@@ -40,7 +40,6 @@ public class ComposeMessageActivity extends AppCompatActivity {
     private TextView toFromLabel;
     private TextView recipientName;
     private ImageView selectRecipientImage;
-    private TextView emailMessage;
     private EditText enterMessage;
     private Button sendButton;
     Toolbar toolbar;
@@ -50,8 +49,8 @@ public class ComposeMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_message);
-        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_compose_message);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Compose Message");
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.drawable.ic_launcher);
@@ -60,10 +59,9 @@ public class ComposeMessageActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         getUserData();
 
-        toFromLabel = findViewById(R.id.to_from_name);
+        toFromLabel = findViewById(R.id.to_from_label);
         recipientName = findViewById(R.id.to_from_name);
         selectRecipientImage = findViewById(R.id.person_list_image);
-        emailMessage = findViewById(R.id.emailContent);
         enterMessage = findViewById(R.id.enterMessage);
         sendButton = findViewById(R.id.sendButton);
 
@@ -71,13 +69,13 @@ public class ComposeMessageActivity extends AppCompatActivity {
         ArrayList<String> replyToSenderInfo = intent.getStringArrayListExtra(Constants.INTENT_KEY);
 
         if(replyToSenderInfo != null) {
+            toFromLabel.setText("To: ");
             recipientName.setText(replyToSenderInfo.get(0));
             setRecipientUid(replyToSenderInfo.get(1));
         }
 
         sendButton.setVisibility(View.VISIBLE);
         enterMessage.setVisibility(View.VISIBLE);
-        findViewById(R.id.emailContent).setVisibility(View.INVISIBLE);
         toFromLabel.setText("To: ");
 
 
@@ -98,6 +96,9 @@ public class ComposeMessageActivity extends AppCompatActivity {
 
                     Toast.makeText(ComposeMessageActivity.this, "Message Sent!", Toast.LENGTH_SHORT).show();
 
+                    Intent intent = new Intent(ComposeMessageActivity.this, InboxActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(ComposeMessageActivity.this, "Please enter a message!", Toast.LENGTH_SHORT).show();
                 }
@@ -132,7 +133,7 @@ public class ComposeMessageActivity extends AppCompatActivity {
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_singlechoice);
 
         for(User user : users) {
-            arrayAdapter.add(user.getFirstName() + " " + user.getFirstName());
+            arrayAdapter.add(user.getFirstName() + " " + user.getLastName());
         }
 
         final ArrayList<User> usersCopy = new ArrayList<>(users);

@@ -29,17 +29,19 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordField;
     private Button login;
     private Button signup;
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         setTitle(Constants.APP_TITLE);
-        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Login");
         toolbar.setLogo(R.drawable.ic_launcher);
+
         userNameField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
         login = findViewById(R.id.loginButton);
@@ -54,7 +56,12 @@ public class LoginActivity extends AppCompatActivity {
                 String email = userNameField.getText().toString();
                 String password = passwordField.getText().toString();
 
-                login(email, password);
+                if(credentialsAreValid(email, password)) {
+                    login(email, password);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Please enter credentials", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -76,8 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d("AUTH", "signInWithEmail:success");
+
                             Intent intent = new Intent(LoginActivity.this, InboxActivity.class);
                             startActivity(intent);
+                            finish();
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -87,5 +96,10 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private boolean credentialsAreValid(String email, String password){
+        return email != null && !email.equals("")
+                && password != null && !password.equals("");
     }
 }

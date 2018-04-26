@@ -6,24 +6,38 @@
     android:layout_height="match_parent"
     tools:context="com.uncc.mobileappdev.inclass13.SignUpActivity"
     >
-    <include layout="@layout/toolbar"></include>
+    <include layout="@layout/toolbar"
+        android:id="@+id/include"></include>
+
+    <EditText
+        android:id="@+id/FirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/signUpButton"
+        android:layout_below="@+id/include"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:hint="@string/FirstName"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
 
     <EditText
         android:id="@+id/LastName"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignStart="@+id/FirstName"
         android:layout_below="@+id/FirstName"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="19dp"
         android:ems="10"
         android:hint="@string/LastName"
         android:inputType="textEmailAddress"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
 
     <EditText
         android:id="@+id/Email"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/LastName"
         android:layout_below="@+id/LastName"
@@ -31,25 +45,12 @@
         android:ems="10"
         android:hint="@string/Email"
         android:inputType="textEmailAddress"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
-
-    <EditText
-        android:id="@+id/FirstName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="61dp"
-        android:ems="10"
-        android:hint="@string/FirstName"
-        android:inputType="textEmailAddress"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/Email"
         android:layout_below="@+id/Email"
@@ -57,41 +58,40 @@
         android:ems="10"
         android:hint="@string/paswd"
         android:inputType="textPassword"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
 
     <EditText
         android:id="@+id/confirmPassword"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignStart="@+id/Password"
         android:layout_below="@+id/Password"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/ConformPaswrd"
         android:inputType="textPassword"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
 
     <Button
         android:id="@+id/signUpButton"
-        android:layout_width="fill_parent"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/confirmPassword"
+        android:layout_alignStart="@+id/cancelButton"
         android:layout_below="@+id/confirmPassword"
-        android:layout_marginTop="40dp"
-        android:text="Sign Up"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:layout_marginTop="36dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Sign Up" />
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="fill_parent"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/signUpButton"
         android:layout_below="@+id/signUpButton"
-        android:layout_marginTop="16dp"
-        android:text="Cancel"
-        android:paddingLeft= "20dp"
-        android:paddingRight="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Cancel" />
 </RelativeLayout>

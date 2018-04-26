@@ -14,6 +14,7 @@ public class Message implements Comparable<Message>{
     private String fromName;
     private String senderUid;
     private boolean isRead;
+    private String dataKey;
 
     public Message(){}
 
@@ -63,6 +64,14 @@ public class Message implements Comparable<Message>{
 
     public void setRead(boolean read) {
         isRead = read;
+    }
+
+    public String getDataKey() {
+        return dataKey;
+    }
+
+    public void setDataKey(String dataKey) {
+        this.dataKey = dataKey;
     }
 
     //Sort by date in DESCENDING order
